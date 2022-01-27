@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { CrudComponent } from './pages/crud/crud.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { CrudComponent } from './components/pages/crud/crud.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

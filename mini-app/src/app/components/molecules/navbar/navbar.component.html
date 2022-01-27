@@ -1,0 +1,9 @@
+<nav class="menu">
+  <ul class="menu__container">
+    <li *ngFor="let title of titles" routerLinkActive="selected">
+      <span
+        ><a [routerLink]="title.route">{{title.copy}}</a
+      ></span>
+        </li>
+  </ul>
+</nav>

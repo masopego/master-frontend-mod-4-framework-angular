@@ -1,0 +1,21 @@
+.menu{
+    &__container{
+        display:flex;
+        align-items:center;
+        list-style-type: none;
+        gap:10px;
+        font-size:18px;
+        padding-right:15px;
+
+        li{
+          padding: 5px 10px;
+          background: #5dada4;
+          border-radius: 5px;
+            a{
+            color: white;
+            font-weight:bold;
+            text-decoration:none;
+            }
+        }
+    }
+}
