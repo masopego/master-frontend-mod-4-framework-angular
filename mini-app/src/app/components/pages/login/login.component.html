@@ -1,1 +1,43 @@
-<p>login works!</p>
+<section class="login__section">
+  <h1 style="font-weight: bold; letter-spacing: 3px;">¡Bienvenido a KiwiCode!</h1>
+  <span style="letter-spacing: 1px; font-size: 16px; padding-bottom: 15px;">Inicia Sesión</span>
+  <form [formGroup]="loginForm" class="login__form">
+    <div class="login__form--input">
+      <input
+        type="text"
+        placeholder="Usuario"
+        [formControl]="userNameControl"
+      />
+    </div>
+    <div *ngIf="userNameControl.invalid" class="login__form--error">
+      <div *ngIf="userNameControl.errors?.['required']">
+        El email es obligatorio
+      </div>
+      <div *ngIf="userNameControl.errors?.['email']">El email no es válido</div>
+    </div>
+    <div class="login__form--input">
+      <input
+        type="password"
+        placeholder="Contraseña"
+        [formControl]="passwordControl"
+      />
+    </div>
+    <div *ngIf="passwordControl.invalid" class="login__form--error">
+      <div *ngIf="passwordControl.errors?.['required']">
+        La contraseña es obligatoria
+      </div>
+      <div *ngIf="passwordControl.errors?.['minlength']">
+        La contraseña debe tener
+        {{ passwordControl.errors?.['minlength'].requiredLength }} caracteres
+        mínimo.
+      </div>
+    </div>
+    <app-button
+      children="Iniciar sesión"
+      (click)="handleLogin()"
+      [disabled]="loginForm.invalid"
+      class="login__form--button"
+    ></app-button>
+  </form>
+  <br />
+</section>
