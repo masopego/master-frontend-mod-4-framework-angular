@@ -8,7 +8,7 @@ import { titleNav } from 'src/app/model/titleNav';
 })
 export class NavbarComponent implements OnInit {
   titles: titleNav[] = [
-    { copy: 'Home', route: '/home' },
+    { copy: 'Home', route: '/' },
     { copy: 'About Us', route: '/about_us' },
     { copy: 'Login', route: '/login' },
   ];
