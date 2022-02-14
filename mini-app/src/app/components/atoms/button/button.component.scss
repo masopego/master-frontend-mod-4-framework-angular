@@ -5,6 +5,7 @@ button {
   border-radius: 5px;
   color: white;
   border: none;
+  cursor:pointer;
 
   &:disabled {
     background: #e5e5e5;
