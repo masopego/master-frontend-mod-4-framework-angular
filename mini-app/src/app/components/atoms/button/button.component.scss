@@ -1,6 +1,12 @@
 button {
-  padding: 5px 15px;
+  padding: 5px 20px;
   background: #5dada4;
+  font-size: 20px;
   border-radius: 5px;
   color: white;
+  border: none;
+
+  &:disabled {
+    background: #e5e5e5;
+  }
 }
