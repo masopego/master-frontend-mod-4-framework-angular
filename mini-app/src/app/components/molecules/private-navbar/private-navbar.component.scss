@@ -1,4 +1,7 @@
 .menu{
+    display:flex;
+    align-items: center;
+    margin-right: 10px;
     &__container{
         display:flex;
         align-items:center;
@@ -17,5 +20,9 @@
             text-decoration:none;
             }
         }
+    }
+    &__userName{
+        color: #fff;
+        border-bottom: 1px solid #fff;
     }
 }

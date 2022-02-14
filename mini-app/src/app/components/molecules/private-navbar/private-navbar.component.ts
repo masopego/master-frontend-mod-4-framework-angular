@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { titleNav } from 'src/app/model/titleNav';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-private-navbar',
@@ -14,7 +15,21 @@ export class PrivateNavbarComponent implements OnInit {
     { copy: 'profile', route: '/profile' },
   ];
 
-  constructor() {}
+  userName: string;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService) {
+    this.userName = '';
+  }
+
+  ngOnInit(): void {
+    this.handleUserName();
+  }
+
+  handleLogout(): void {
+    this.authService.logout();
+  }
+  handleUserName(): string {
+    console.log(this.userName);
+    return (this.userName = this.authService.getUsername());
+  }
 }

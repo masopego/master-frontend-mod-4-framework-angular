@@ -5,5 +5,13 @@
         ><a [routerLink]="title.route">{{title.copy}}</a
       ></span>
         </li>
+        <li>
+          <app-button
+          children="Log out"
+          (click)="handleLogout()"
+          class="menu__container--button"
+        ></app-button>
+        </li>
   </ul>
+  <span class="menu__userName">{{userName}}</span>
 </nav>

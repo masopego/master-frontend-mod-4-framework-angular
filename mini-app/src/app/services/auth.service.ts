@@ -18,10 +18,10 @@ export class AuthService {
   }
 
   login(userData: Login): boolean {
-    const isUserNameAllow = userData.userName === this.userCredentials.userName;
-    const isPasswordAllow = userData.password === this.userCredentials.password;
+    const isUserNameMatch = userData.userName === this.userCredentials.userName;
+    const isPasswordMatch = userData.password === this.userCredentials.password;
 
-    if (isUserNameAllow && isPasswordAllow) {
+    if (isUserNameMatch && isPasswordMatch) {
       localStorage.setItem(this.TOKEN_KEY, 'LoginAllowed');
       this.router.navigate(['/dashboard']);
       return true;
@@ -41,6 +41,6 @@ export class AuthService {
   }
 
   getUsername(): string {
-    return 'Aquí el nombre';
+    return this.userCredentials.userName;
   }
 }
