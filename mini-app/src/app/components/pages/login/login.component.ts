@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { NgxSpinnerService } from "ngx-spinner";
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private spinner: NgxSpinnerService
   ) {
     this.createLoginForm();
   }
@@ -38,16 +40,18 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
   }
 
-  handleLogin(): boolean {
-    let newLogin = this.loginForm?.value;
-    const isLoginOk = this.authService.login(newLogin);
-
-    if (!isLoginOk) {
-      this.resetForm();
-      alert('Login no válido. Inténtalo de nuevo');
+  handleLogin(): void {
+    this.spinner.show();
+    let userDataLogin = this.loginForm?.value;
+    this.authService.login(userDataLogin).subscribe((result) => { 
+      this.spinner.hide();
+      if (!result) {
+        this.resetForm();
+        alert('Login no válido. Inténtalo de nuevo');
+      }
+      return result
     }
-
-    return isLoginOk;
+    );
   }
 
   ngOnInit(): void {}

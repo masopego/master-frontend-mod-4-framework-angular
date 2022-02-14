@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay, Observable, of } from 'rxjs';
 import { Login } from '../model/login';
 
 @Injectable({
@@ -17,17 +18,17 @@ export class AuthService {
     this.TOKEN_KEY = 'token';
   }
 
-  login(userData: Login): boolean {
+  login(userData: Login): Observable<boolean> {
     const isUserNameMatch = userData.userName === this.userCredentials.userName;
     const isPasswordMatch = userData.password === this.userCredentials.password;
 
     if (isUserNameMatch && isPasswordMatch) {
       localStorage.setItem(this.TOKEN_KEY, 'LoginAllowed');
       this.router.navigate(['/dashboard']);
-      return true;
+      return of(true).pipe(delay(5000));;
     }
 
-    return false;
+    return of(false).pipe(delay(5000));;
   }
 
   logout(): void {
