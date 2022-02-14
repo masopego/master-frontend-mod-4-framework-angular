@@ -5,5 +5,7 @@
     <img class="header__title--image" src="assets/images/kiwi_logo.jpg" />
     <h1 class="header__title--name">KiwiCode</h1>
   </div>
-  <app-navbar></app-navbar>
+  <app-navbar *ngIf="!isLogin"></app-navbar>
+  <app-private-navbar *ngIf="isLogin"></app-private-navbar>
+
 </header>
